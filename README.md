@@ -41,9 +41,9 @@
 　* 農家さんと直接つながりたい。メッセージをやりとりしたい。
 
 ## 設計書
-<...>
 
-## チャレンジ要素一覧
+
+## 機能要素一覧
 https://docs.google.com/spreadsheets/d/1FqyrwAdWqyXXrb3D2z5U8dO5oTFdd2sRcZ6eq-jqfy8/edit#gid=0
 
 ## 開発環境
