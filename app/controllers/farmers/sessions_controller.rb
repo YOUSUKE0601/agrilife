@@ -2,6 +2,11 @@
 
 class Farmers::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
+  
+  #ログイン時にマイページへ遷移
+  def after_sign_in_path_for(resource)
+    my_page_producer_farmers_path
+  end
 
   # GET /resource/sign_in
   # def new

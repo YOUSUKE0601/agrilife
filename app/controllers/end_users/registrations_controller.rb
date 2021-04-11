@@ -43,7 +43,7 @@ class EndUsers::RegistrationsController < Devise::RegistrationsController
     private
 
     def configure_permitted_parameters
-      devise_parameter_sanitizer.permit(:sign_up, keys:[:name])
+      devise_parameter_sanitizer.permit(:sign_up, keys:[:farm_name, :name])
     end
   # protected
 

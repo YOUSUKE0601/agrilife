@@ -3,6 +3,13 @@
 class Farmers::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
+  before_action :configure_permitted_parameters, only: [:create]
+
+  #新規登録時にマイページに遷移
+  def after_sign_up_path_for(resource)
+    my_page_producer_farmers_path
+  end
+
 
   # GET /resource/sign_up
   # def new
@@ -37,6 +44,11 @@ class Farmers::RegistrationsController < Devise::RegistrationsController
   # def cancel
   #   super
   # end
+    private
+
+    def configure_permitted_parameters
+      devise_parameter_sanitizer.permit(:sign_up, keys:[:name])
+    end
 
   # protected
 
