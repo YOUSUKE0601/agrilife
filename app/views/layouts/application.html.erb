@@ -24,6 +24,7 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
               <% if end_user_signed_in? %>
+                ようこそ、<%= current_end_user.name %>さん！
                 <li class="nav-item">
                   <%= link_to "About", about_path, class: 'nav-link text-dark' %>
                 </li>

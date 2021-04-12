@@ -1,1 +1,35 @@
-<h1>My page</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col-5 d-flex align-items-center justify-content-center" style="height: 300px;">
+        <%= attachment_image_tag @end_user, :profile_image, :fill, 250, 250, format: 'jpeg', fallback: "no_image.jpeg", size:'250x250' %>
+    </div>
+
+    <div class="col-7 d-flex align-items-center justify-content-center" style="height: 400px;">
+      <table border="6" width="500">
+        <tr>
+          <th class="table-active">氏名</th>
+          <td class='end_user-name'><%= @end_user.name %></td>
+        </tr>
+        <tr>
+          <th class="table-active">メールアドレス</th>
+          <td class="end_user-email"><%= @end_user.email %></td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-10 text-right pb-5">
+        <%= link_to "編集する", edit_public_end_user_path(current_end_user), class: 'btn btn-success' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <p>フォロー一覧</p>
+    </div>
+    <div class="col-4">
+      <p>いいね一覧</p>
+    </div>
+    <div class="col-4">
+      <p>チャット一覧</p>
+    </div>
+  </div>
+</div>
