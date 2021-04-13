@@ -47,7 +47,7 @@ class Farmers::RegistrationsController < Devise::RegistrationsController
     private
 
     def configure_permitted_parameters
-      devise_parameter_sanitizer.permit(:sign_up, keys:[:name])
+      devise_parameter_sanitizer.permit(:sign_up, keys:[:name, :email, :category, :farm_name, :profile_image_id, :farm_image_id, :region, :postcode, :telephone_number, :introduction, :prefecture, :address])
     end
 
   # protected

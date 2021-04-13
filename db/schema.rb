@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_10_100648) do
+ActiveRecord::Schema.define(version: 2021_04_13_112416) do
 
   create_table "chats", force: :cascade do |t|
     t.integer "room_id"
@@ -48,14 +48,12 @@ ActiveRecord::Schema.define(version: 2021_04_10_100648) do
     t.string "farm_image_id"
     t.integer "region"
     t.string "postcode"
-    t.integer "prefecture_code"
-    t.string "address_city"
-    t.string "address_street"
-    t.string "address_building"
     t.string "telephone_number"
     t.text "introduction"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "prefecture"
+    t.string "address"
     t.index ["email"], name: "index_farmers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_farmers_on_reset_password_token", unique: true
   end

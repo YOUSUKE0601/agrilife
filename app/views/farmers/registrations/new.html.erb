@@ -1,41 +1,88 @@
-<h2>Sign up</h2>
+<div class="container">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "farmers/shared/error_messages", resource: resource %>
+      <div class="row">
+        <div class="col-12">
+          <h2>Sign up</h2>
+        
+          <div class="field" style="width: 400px;">
+            <%= f.label "プロフィール画像" %><br />
+            <%= f.attachment_field :profile_image, placeholder: "プロフィール画像", class: 'form-control-file' %>
+          </div>
+          
+          <div class="field" style="width: 400px;">
+            <%= f.label "農園画像" %><br />
+            <%= f.attachment_field :farm_image, placeholder: "農園画像", class: 'form-control-file' %>
+          </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "farmers/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :farm_name %><br />
-    <%= f.text_field :farm_name, autofocus: true, autocomplete: "farm_name" %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-
-
-<%= render "farmers/shared/links" %>
+          <div class="field" style="width: 400px;">
+            <%= f.label "農園名" %><br />
+            <%= f.text_field :farm_name, autofocus: true, autocomplete: "farm_name", class: "form-control" %>
+          </div>
+        
+          <div class="field" style="width: 400px;">
+            <%= f.label "お名前" %><br />
+            <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %>
+          </div>
+        
+          <div class="field" style="width: 400px;">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+          </div>
+        
+          <div class="field" style="width: 400px;">
+            <%= f.label "地域" %><br />
+            <%= f.select :region, Farmer.regions.keys, {include_blank: "選択してください"}, {class: "form-control"} %>
+          </div>
+        
+          <div class="field" style="width: 400px;">
+            <%= f.label "郵便番号" %><br />
+            <%= f.text_field :postcode, autofocus: true, autocomplete: "postcode", class: "form-control" %>
+          </div>
+        
+          <div class="field" style="width: 400px;">
+            <%= f.label "都道府県" %><br />
+            <%= f.text_field :prefecture, autofocus: true, autocomplete: "prefecture", class: "form-control" %>
+          </div>
+        
+          <div class="field" style="width: 400px;">
+            <%= f.label :"住所" %><br />
+            <%= f.text_field :address, autofocus: true, autocomplete: "address", class: "form-control" %>
+          </div>
+        
+          <div class="field" style="width: 400px;">
+            <%= f.label :"電話番号" %><br />
+            <%= f.text_field :telephone_number, autofocus: true, autocomplete: "telephone_number", class: "form-control" %>
+          </div>
+        
+          <div class="field" style="width: 400px;">
+            <%= f.label :"説明" %><br />
+            <%= f.text_area :introduction, autofocus: true, autocomplete: "introduction", class: "form-control" %>
+          </div>
+        
+          <div class="field" style="width: 400px;">
+            <%= f.label :"カテゴリー" %><br />
+            <%= f.select :category, Farmer.categories.keys, {include_blank: "選択してください"}, {class: "form-control"} %>
+          </div>
+        
+          <div class="field" style="width: 400px;">
+            <%= f.label :password %>
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %><br />
+            <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+          </div>
+        
+          <div class="field" style="width: 400px;">
+            <%= f.label :password_confirmation %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+          </div>
+        
+          <div class="actions">
+            <%= f.submit "Sign up" %>
+          </div>
+        </div>
+      </div>
+  <% end %>
+  <%= render "farmers/shared/links" %>
+</div>
