@@ -20,7 +20,7 @@ class Public::EndUsersController < ApplicationController
 
   def destroy
     @end_user = current_end_user
-    @end_user.destroy
+    @end_user.destroy 
     redirect_to root_path
   end
 

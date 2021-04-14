@@ -1,1 +1,64 @@
-<h1>生産者のマイページです</h1>
+<div class="container">
+  <div class="row">
+    <h1 class="pt-3">マイページ</h1>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-5">
+      <div class="mb-3"><%= attachment_image_tag @farmer, :profile_image, :fill, 200, 200, format: 'jpeg', fallback: "no_image.jpeg", size:'250x250' %></div>
+      <div><%= attachment_image_tag @farmer, :farm_image, :fill, 300, 300, format: 'jpeg', fallback: "no_image.jpeg", size:'300x200' %></div>
+    </div>
+
+    <div class="col-lg-7">
+      <table class="table table-sm">
+
+        <tbody>
+          <tr>
+            <th style="width: 200px;"><h5>農園名：</h5></th>
+            <td><%= @farmer.farm_name %></td>
+          </tr>
+          <tr>
+            <th><h5>名前：</h5></th>
+            <td><%= @farmer.name %></td>
+          </tr>
+          <tr>
+            <th><h5>Email：</h5></th>
+            <td><%= @farmer.email %></td>
+          </tr>
+          <tr>
+            <th><h5>地域：</h5></th>
+            <td><%= @farmer.region %></td>
+          </tr>
+          <tr>
+            <th><h5>郵便番号：</h5></th>
+            <td><%= @farmer.postcode %></td>
+          </tr>
+          <tr>
+            <th><h5>都道府県：</h5></th>
+            <td><%= @farmer.prefecture %></td>
+          </tr>
+          <tr>
+            <th><h5>住所：</h5></th>
+            <td><%= @farmer.address %></td>
+          </tr>
+          <tr>
+            <th><h5>電話番号：</h5></th>
+            <td><%= @farmer.telephone_number %></td>
+          </tr>
+          <tr>
+            <th><h5>説明：</h5></th>
+            <td><%= @farmer.introduction %></td>
+          </tr>
+          <tr>
+            <th><h5>カテゴリー：</h5></th>
+            <td><%= @farmer.category %></td>
+          </tr>
+          <tr>
+            <th></th>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
