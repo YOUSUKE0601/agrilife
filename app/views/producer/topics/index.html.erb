@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+      <% @topics.each do |topic| %>
+        <h2><%= topic.title %></h2>
+        <h2><%= topic.body %></h2>
+      <% end %>
+    </div>
+  </div>
+</div>

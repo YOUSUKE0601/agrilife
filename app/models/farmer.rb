@@ -11,6 +11,7 @@ class Farmer < ApplicationRecord
   attachment :profile_image
   attachment :farm_image
 
+  has_many :topics, dependent: :destroy
 
 
 end
