@@ -1,0 +1,76 @@
+<div class="container">
+  <div class="row">
+    <h1 class="pt-3">編集ページ</h1>
+  </div>
+  <%= form_with model:@farmer, url: producer_farmer_path(@farmer), method: :patch, local:true do |f| %>
+    <div class="row">
+      <div class="col-lg-5">
+        <div class="mb-3">
+          <%= attachment_image_tag @farmer, :profile_image, :fill, 200, 200, format: 'jpeg', fallback: "no_image.jpeg", size:'250x250' %>
+          <%= f.attachment_field :profile_image, placeholder: "プロフィール画像", class: "form-control-file" %>
+        </div>
+        <div>
+          <%= attachment_image_tag @farmer, :farm_image, :fill, 300, 300, format: 'jpeg', fallback: "no_image.jpeg", size:'300x200' %>
+          <%= f.attachment_field :farm_image, placeholder: "農園画像", class: "form-control-file" %>
+          </div>
+      </div>
+
+      <div class="col-lg-7">
+        <table class="table-borderless ">
+
+          <tbody>
+            <tr>
+              <th style="width: 200px;"><h5>農園名：</h5></th>
+              <td style="width: 400px;"><%= f.text_field :farm_name, autocomplete: "farm_name", class: "form-control" %></td>
+            </tr>
+            <tr>
+              <th><h5>名前：</h5></th>
+              <td><%= f.text_field :name, autocomplete: "name", class: "form-control" %></td>
+            </tr>
+            <tr>
+              <th><h5>Email：</h5></th>
+              <td><%= f.email_field :email, autocomplete: "email", class: "form-control" %></td>
+            </tr>
+            <tr>
+              <th><h5>地域：</h5></th>
+              <td><%= f.select :region, Farmer.regions.keys, {}, {class: "form-control"} %></td>
+            </tr>
+            <tr>
+              <th><h5>郵便番号：</h5></th>
+              <td><%= f.text_field :postcode, autocomplete: "postcode", class: "form-control" %></td>
+            </tr>
+            <tr>
+              <th><h5>都道府県：</h5></th>
+              <td><%= f.text_field :prefecture, autocomplete: "prefecture", class: "form-control" %></td>
+            </tr>
+            <tr>
+              <th><h5>住所：</h5></th>
+              <td><%= f.text_field :address, autocomplete: "address", class: "form-control" %></td>
+            </tr>
+            <tr>
+              <th><h5>電話番号：</h5></th>
+              <td><%= f.text_field :telephone_number, autocomplete: "telephone_number", class: "form-control" %></td>
+            </tr>
+            <tr>
+              <th><h5>説明：</h5></th>
+              <td><%= f.text_area :introduction, autocomplete: "introduction", class: "form-control" %></td>
+            </tr>
+            <tr>
+              <th><h5>カテゴリー：</h5></th>
+              <td><%= f.select :category, Farmer.categories.keys, {}, {class: "form-control"} %></td>
+            </tr>
+            <tr>
+              <th></th>
+              <td><div class="mt-3"><%= f.submit "Update", class: "btn btn-primary" %></td></div>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  <% end %>
+  <div class="row" style="width: 1500px;">
+    <div class="col-lg-12 d-flex justify-content-end">
+      <div class="mr-5"><%= link_to "戻る", my_page_producer_farmers_path, class: "btn btn-secondary" %></div>
+      <div class="ml-5"><%= link_to "退会する", unsubscribe_producer_farmers_path, class: "btn btn-danger" %></div>
+    </div>
+  </div>
+</div>

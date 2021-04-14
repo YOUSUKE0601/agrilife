@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 py-5 mx-auto">
+      <h1 class="text-center">本当に退会しますか？</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-10 text-center py-5 mx-auto" style="width: 200px;">
+      <div class="col-4 d-inline">
+        <%= link_to "退会しない", my_page_producer_farmers_path, class: "btn btn-primary" %>
+      </div>
+      <div class="col-4 d-inline">
+        <%= link_to "退会する", producer_farmer_path(@farmer), method: :delete, "data-confirm" => "本当に退会しますか？", class: "btn btn-danger" %>
+      </div>
+    </div>
+  </div>
+</div>
