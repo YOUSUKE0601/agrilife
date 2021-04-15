@@ -25,7 +25,9 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
               <% if end_user_signed_in? %>
-                ようこそ、<%= current_end_user.name %>さん！
+                <li>
+                  ようこそ、<%= current_end_user.name %>さん！
+                </li>
                 <li class="nav-item">
                   <%= link_to "About", about_path, class: 'nav-link text-dark' %>
                 </li>
@@ -43,7 +45,7 @@
                   <%= link_to "新規投稿する", new_producer_topic_path, class: 'nav-link text-dark' %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to "Topic", producer_topics_path, class: 'nav-link text-dark' %>
+                  <%= link_to "トピック履歴一覧", producer_topics_path, class: 'nav-link text-dark' %>
                 </li>
               <% else %>
                 <li class="nav-item">

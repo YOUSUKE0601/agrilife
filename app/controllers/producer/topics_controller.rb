@@ -15,11 +15,22 @@ class Producer::TopicsController < ApplicationController
     @topics = Topic.all
   end
   
+  def show
+    @topic = Topic.find(params[:id])
+  end
+  
+  def destroy
+    @topic = Topic.find(params[:id])
+    @topic.destroy
+    redirect_to producer_topics_path
+  end
+    
+    
   
   private
   
   def topic_params
-    params.require(:topic).permit(:topic_image_id, :title, :body)
+    params.require(:topic).permit(:topic_image, :title, :body)
   end
 
 end

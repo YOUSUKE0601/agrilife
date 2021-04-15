@@ -12,16 +12,16 @@ Rails.application.routes.draw do
 
   namespace :producer do
 
-    resources :topics, only: [:new, :index, :create]
-    
+    resources :topics, only: [:new, :index, :create, :show, :edit, :destroy]
+
     resources :farmers, only: [:edit, :index, :update, :destroy] do
       collection do
         get 'my_page'
         get 'unsubscribe'
       end
     end
-  
-  
+
+
   end
 
   devise_for :end_users, controllers: {

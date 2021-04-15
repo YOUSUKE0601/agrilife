@@ -1,0 +1,23 @@
+<div class="topic-detail py-5 bg-light">
+  <div class="card w-75 mx-auto mt-4 shadow-lg">
+    <%= attachment_image_tag @topic, :topic_image, class:"card-img-top"; %>
+    <div class="card-body">
+      <div class="row">
+        <%= attachment_image_tag @topic.farmer, :profile_image, :fill, 80, 80, fallback: "no_image.jpg", class:"mt-3 rounded-circle"; %>
+      </div>
+      <div class="col-10">
+        <p class="card-title">
+          <%= link_to(producer_topic_path(@topic), class: "text-dark") do %>
+            <strong><%= @topic.title %></strong>
+          <% end %>
+        </p>
+        <p class="card-body">説明：<%= @topic.body %></p>
+        <span>By <%= @topic.farmer.name %> | </span>
+        <span> <%= @topic.created_at.strftime('%Y年%m月%d日%H時%M分') %></span>
+      </div>
+      <div class="col-10">
+        <span><%= link_to "削除する", producer_topic_path(@topic), method: :delete,  "data-confirm" => "本当に削除しますか?" %></span>
+      </div>
+    </div>
+  </div>
+</div>
