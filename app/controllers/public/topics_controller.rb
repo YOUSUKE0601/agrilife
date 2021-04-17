@@ -1,7 +1,12 @@
 class Public::TopicsController < ApplicationController
   
   def index
-    @topics = Topic.all
+    @farmer = Farmer.find_by(id: params[:farmer_id])
+    if @farmer.present?
+      @topics = @farmer.topics
+    else
+      @topics = Topic.all
+    end
   end
   
   def show

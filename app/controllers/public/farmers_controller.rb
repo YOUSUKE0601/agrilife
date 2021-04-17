@@ -13,6 +13,7 @@ class Public::FarmersController < ApplicationController
   end
 
   def show
+    @farmer = Farmer.find(params[:id])
   end
 
 end

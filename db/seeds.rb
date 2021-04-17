@@ -29,8 +29,24 @@ Farmer.create!(
   introduction: 'テストテストテストテストテストテスト',
   category: 2,
   password: '654321',
-  farm_image: File.open('./app/assets/images/farm_image.jpg'),
-  profile_image: File.open('./app/assets/images/farmer_image.jpg')
+  farm_image: File.open('./app/assets/images/farm_image/image1.jpg'),
+  profile_image: File.open('./app/assets/images/farmer_image/image1.jpg')
+)
+
+Farmer.create!(
+  email: 'bbb@bbb.com',
+  farm_name: 'テスト2農園',
+  name: 'テスト三郎',
+  region: 4,
+  postcode: '123456',
+  prefecture: '滋賀県',
+  address: 'テストテスト',
+  telephone_number: '0000000000',
+  introduction: 'テストテストテストテストテストテスト',
+  category: 3,
+  password: '121212',
+  farm_image: File.open('./app/assets/images/farm_image/image2.jpg'),
+  profile_image: File.open('./app/assets/images/farmer_image/image2.jpg')
 )
 
 5.times do |n|
