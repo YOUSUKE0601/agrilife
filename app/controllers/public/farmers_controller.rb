@@ -1,10 +1,17 @@
 class Public::FarmersController < ApplicationController
 
-  def serch 
+  def search
     @q = Farmer.ransack(params[:q])
-    @farmers = @q.result.order(:farm_name)
+    
+    #受け取った値がnill、false以外だったら
+    if params[:q]
+      @farmers = @q.result.order(:farm_name)
+    else
+      @farmers = []
+    end
+
   end
-  
+
   def show
   end
 

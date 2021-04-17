@@ -1,5 +1,5 @@
 <div class="card-list-containar py-5">
-  <%= @topics.each do |topic| %>
+  <% @topics.each do |topic| %>
     <div class="card w-50 mx-auto mt-4 shadow-lg">
       <%= link_to public_topic_path(topic) do %>
         <%= attachment_image_tag topic, :topic_image, class:"card-img-top"; %>

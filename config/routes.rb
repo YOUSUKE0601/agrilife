@@ -42,7 +42,7 @@ Rails.application.routes.draw do
 
     resources :farmers, only:[:index, :show] do
       collection do
-        get 'serch'
+        get 'search'
       end
     end
 
