@@ -16,7 +16,17 @@
               <% end %>
             </p>
             <p class="card-text">説明:<%= topic.body %></p>
-            <span>By <%= topic.farmer.farm_name %></span>
+            <span>By <%= topic.farmer.farm_name %> | </span>
+            <span>
+              <%= link_to(public_topic_path(topic.id), class:"text-dark") do %>
+                <i class="fas fa-comments"></i> <%= topic.topic_comments.count %>
+              <% end %> | 
+            </span>
+            <span>
+              <%= link_to(public_topic_path(topic.id), class:"text-dark") do %>
+                <i class="fas fa-heart"></i> <%= topic.favorites.count %>
+              <% end %>
+            </span>
           </div>
         </div>
       </div>

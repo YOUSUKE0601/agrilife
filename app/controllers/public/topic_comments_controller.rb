@@ -9,6 +9,8 @@ class Public::TopicCommentsController < ApplicationController
   end
 
   def destroy
+    TopicComment.find_by(id: params[:id], topic_id: params[:topic_id]).destroy
+    redirect_to public_topic_path(params[:topic_id])
   end
 
   private

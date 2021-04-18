@@ -16,6 +16,19 @@
           <span>By <%= @topic.farmer.name %> | </span>
           <span> <%= @topic.created_at.strftime('%Y年%m月%d日%H時%M分') %> | </span>
           <span><i class="fas fa-comments"></i> <%= link_to "#{@topic.topic_comments.count}", public_topic_path(@topic), class: "text-dark" %> | </span>
+          <% if @topic.favorited_by?(current_end_user) %>
+            <span>
+              <%= link_to(public_topic_favorites_path(@topic.id), class:"text-dark", method: :delete) do %>
+                <i class="fas fa-heart"></i> <%= @topic.favorites.count %>
+              <% end %>
+            </span>
+            <% else %>
+            <span>
+              <%= link_to(public_topic_favorites_path(@topic), class:"text-dark", method: :post) do %>
+                <i class="fas fa-heart"></i> <%= @topic.favorites.count %>
+              <% end %>
+            </span>
+          <% end %>
         </div>
       </div>
       <hr>
