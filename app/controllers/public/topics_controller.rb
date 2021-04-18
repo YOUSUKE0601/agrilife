@@ -1,5 +1,5 @@
 class Public::TopicsController < ApplicationController
-  
+
   def index
     @farmer = Farmer.find_by(id: params[:farmer_id])
     if @farmer.present?
@@ -8,9 +8,10 @@ class Public::TopicsController < ApplicationController
       @topics = Topic.all
     end
   end
-  
+
   def show
     @topic = Topic.find(params[:id])
+    @topic_comment = TopicComment.new
   end
 
 end
