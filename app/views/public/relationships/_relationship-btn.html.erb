@@ -1,0 +1,5 @@
+<% if farmer.followed_by?(current_end_user) %>
+  <%= link_to "フォロー中", public_farmer_relationship_path(farmer, current_end_user.id), method: :delete, remote: true, "data-confirm" => "フォローを外しますか？", class: "btn btn-outline-dark" %>
+<% else %>
+  <%= link_to "フォローする", public_farmer_relationships_path(farmer), method: :post, remote: true, class: "btn btn-primary" %>
+<% end %>
