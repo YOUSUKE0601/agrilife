@@ -61,7 +61,16 @@
       </table>
     </div>
   </div>
-  <div class="row">
-    <div class="col-lg-12 d-flex justify-content-end"><%= link_to "トピックを見る", public_topics_path(farmer_id: @farmer), class: "btn btn-secondary" %></div>
+  <div class="row d-flex justify-content-end">
+      <div class="col-lg-3">
+        <% if @farmer.followed_by?(current_end_user) %>
+          <%= link_to "フォロー中", public_farmer_relationship_path(@farmer), method: :delete, "data-confirm" => "フォローを外しますか？", class: "btn btn-outline-dark" %>
+        <% else %>
+          <%= link_to "フォローする", public_farmer_relationships_path(@farmer), method: :post, class: "btn btn-primary" %>
+        <% end %>
+      </div>
+      <div class="col-lg-3">
+        <%= link_to "トピックを見る", public_topics_path(farmer_id: @farmer), class: "btn btn-secondary" %>
+      </div>
   </div>
 </div>

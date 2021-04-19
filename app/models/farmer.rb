@@ -12,6 +12,11 @@ class Farmer < ApplicationRecord
   attachment :farm_image
 
   has_many :topics, dependent: :destroy
+  has_many :relationships, dependent: :destroy
+  
+  def followed_by?(end_user)
+    relationships.where(end_user_id: end_user.id).exists?
+  end
 
 
 end

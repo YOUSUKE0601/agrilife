@@ -73,7 +73,8 @@
                   <% end %>
                 </p>
                 <p class="card-text">紹介:　<%= farmer.introduction %></p>
-                <span>都道府県： <%= farmer.prefecture %></span>
+                <span>都道府県：<%= farmer.prefecture %> | </span>
+                <span>フォロワー: <%= farmer.relationships.count %>人</span>
               </div>
             </div>
           </div>

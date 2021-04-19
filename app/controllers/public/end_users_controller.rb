@@ -23,8 +23,19 @@ class Public::EndUsersController < ApplicationController
     @end_user.destroy 
     redirect_to root_path
   end
-
-
+  
+  def favorites
+    @end_user = EndUser.find(params[:id])
+    #pluckでテーブルからカラムを取得
+    @topics = Topic.where(id: Favorite.where(end_user_id: @end_user.id).pluck(:topic_id)).page(params[:page]).reverse_order
+  end
+  
+  def following
+    @end_user = EndUser.find(params[:id])
+    @farmers = Farmer.where(id: Relationship.where(end_user_id: @end_user.id).pluck(:farmer_id)).page(params[:page]).reverse_order
+  end
+  
+    
 
   private
 

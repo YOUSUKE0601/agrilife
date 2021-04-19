@@ -38,9 +38,14 @@ Rails.application.routes.draw do
         get 'unsubscribe'
         get 'my_page'
       end
+      member do
+        get 'favorites'
+        get 'following'
+      end
     end
 
     resources :farmers, only:[:index, :show] do
+      resources :relationships, only:[:create, :destroy]
       collection do
         get 'search'
       end
@@ -50,6 +55,7 @@ Rails.application.routes.draw do
       resources :topic_comments, only:[:create, :destroy]
       resource :favorites, only:[:create, :destroy]
     end
+
 
   end
 

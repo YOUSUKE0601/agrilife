@@ -18,15 +18,15 @@
       </table>
     </div>
     <div class="col-10 text-right pb-5">
-        <%= link_to "編集する", edit_public_end_user_path(current_end_user), class: 'btn btn-success' %>
+        <%= link_to "編集する", edit_public_end_user_path(@end_user), class: 'btn btn-success' %>
     </div>
   </div>
   <div class="row">
     <div class="col-4">
-      <p>フォロー一覧</p>
+      <%= link_to "フォロー一覧", following_public_end_user_path(@end_user) %>
     </div>
     <div class="col-4">
-      <p>いいね一覧</p>
+      <%= link_to "いいね一覧", favorites_public_end_user_path(@end_user) %>
     </div>
     <div class="col-4">
       <p>チャット一覧</p>
