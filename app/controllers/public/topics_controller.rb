@@ -3,9 +3,9 @@ class Public::TopicsController < ApplicationController
   def index
     @farmer = Farmer.find_by(id: params[:farmer_id])
     if @farmer.present?
-      @topics = @farmer.topics
+      @topics = @farmer.topics.page(params[:page]).reverse_order
     else
-      @topics = Topic.all
+      @topics = Topic.page(params[:page]).reverse_order
     end
   end
 
