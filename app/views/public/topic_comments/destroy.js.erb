@@ -1,0 +1,2 @@
+$("#topic_<%= @topic.id %> .comments-count").html("コメント数: <%= @topic.topic_comments.count %>");
+$("#topic_comments").html("<%= j(render 'public/topic_comments/topic_comment-index', topic: @topic) %>");

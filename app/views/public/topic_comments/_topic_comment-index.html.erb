@@ -1,0 +1,12 @@
+<% topic.topic_comments.each do |topic_comment| %>
+  <div class="media border mb-3">
+    <%= attachment_image_tag topic_comment.end_user, :profile_image, :fill, 80, 80, fallback: "no_image.jpg", class:"bd-placeholder-img align-self-center mx-3" %>
+    <div class="media-body ml-4 p-3">
+      <p><%= topic_comment.created_at.strftime('%Y年%m月%d日%H時%M分') %></p>
+      <P><%= topic_comment.comment %></P>
+      <% if topic_comment.end_user == current_end_user %>
+        <%= link_to "削除", public_topic_topic_comment_path(topic_comment.topic, topic_comment), method: :delete, remote: true, class: "btn btn-danger pull-right" %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
