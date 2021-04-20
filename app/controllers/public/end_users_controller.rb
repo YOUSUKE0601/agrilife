@@ -1,6 +1,6 @@
 class Public::EndUsersController < ApplicationController
 
-  def my_page
+  def show
     @end_user = current_end_user
   end
 

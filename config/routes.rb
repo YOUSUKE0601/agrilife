@@ -21,6 +21,14 @@ Rails.application.routes.draw do
       end
     end
 
+    resources :end_users do
+      resources :rooms, only: [:index, :show] do
+        collection do
+          post 'chat'
+        end
+      end
+    end
+
 
   end
 
@@ -49,13 +57,19 @@ Rails.application.routes.draw do
       collection do
         get 'search'
       end
+      resources :rooms, only:[:create, :index, :show] do
+        collection do
+          post 'chat'
+        end
+      end
+      resources :chats, only:[:create]
     end
+
 
     resources :topics, only:[:index, :show] do
       resources :topic_comments, only:[:create, :destroy]
       resource :favorites, only:[:create, :destroy]
     end
-
 
   end
 

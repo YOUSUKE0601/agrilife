@@ -13,7 +13,12 @@ class Farmer < ApplicationRecord
 
   has_many :topics, dependent: :destroy
   has_many :relationships, dependent: :destroy
-  
+
+  has_many :rooms, dependent: :destroy
+  has_many :chats, dependent: :destroy
+
+
+
   def followed_by?(end_user)
     relationships.where(end_user_id: end_user.id).exists?
   end

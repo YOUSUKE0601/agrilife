@@ -9,6 +9,11 @@ class EndUser < ApplicationRecord
   has_many :favorites, dependent: :destroy
   
   has_many :relationships, dependent: :destroy
+  
+  has_many :rooms, dependent: :destroy
+  has_many :chats, dependent: :destroy
+  
+  
 
 
 end
