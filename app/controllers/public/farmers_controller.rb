@@ -15,17 +15,15 @@ class Public::FarmersController < ApplicationController
   def show
     @farmer = Farmer.find(params[:id])
     #ログインしているユーザーの情報を持ってくる
-    @currentEndUserRoom = Room.where(end_user_id: current_end_user.id) 
-    @farmerRoom = Room.where(farmer_id: @farmer.id)
-    @currentEndUserRoom.each do |ceu|
-      @farmerRoom.each do |fr|
-        if ceu.id == fr.id then
+    #@currentEndUserRoom = Room.where(end_user_id: current_end_user.id)
+    @room = Room.where(end_user_id: current_end_user.id, farmer_id: @farmer.id)
+    #@farmerRoom = Room.where(farmer_id: @farmer.id)
+    #@currentEndUserRoom.each do |ceu|
+      #@farmerRoom.each do |fr|
+        if @room.present?
           @isRoom = true
-          @roomId = ceu.id
         end
-      end
-    end
-    if @isRoom
+    if !@isRoom 
       @room = Room.new
     end
   end

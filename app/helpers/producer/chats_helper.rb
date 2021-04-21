@@ -1,0 +1,2 @@
+module Producer::ChatsHelper
+end

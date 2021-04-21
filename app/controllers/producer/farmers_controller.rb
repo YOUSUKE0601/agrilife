@@ -27,6 +27,19 @@ class Producer::FarmersController < ApplicationController
   def follower
     @farmer = Farmer.find(params[:id])
     @end_users = EndUser.where(id: Relationship.where(farmer_id: @farmer.id).pluck(:end_user_id))
+    @room = Room.where(end_user_id: @end_users.ids, farmer_id: @farmer.id)
+    #@farmerRoom = Room.where(farmer_id: @farmer.id)
+    #@EndUserRoom.each do |eur|
+     # @farmerRoom.each do |fr|
+        if @room.present?
+          @isRoom = true
+          #@room = @EndUserRoom
+        end
+    
+    if !@isRoom
+      @room = Room.new
+    end
+  
   end
   
   private
@@ -34,4 +47,5 @@ class Producer::FarmersController < ApplicationController
   def farmer_params
     params.require(:farmer).permit(:name, :email, :category, :farm_name, :profile_image_id, :farm_image_id, :region, :postcode, :telephone_number, :introduction, :prefecture, :address)
   end
+
 end

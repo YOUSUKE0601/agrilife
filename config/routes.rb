@@ -25,7 +25,7 @@ Rails.application.routes.draw do
     end
 
     resources :end_users do
-      resources :rooms, only: [:index, :show]
+      resources :rooms, only: [:create, :index, :show]
       resources :chats, only: [:create]
     end
 
@@ -57,11 +57,7 @@ Rails.application.routes.draw do
       collection do
         get 'search'
       end
-      resources :rooms, only:[:create, :index, :show] do
-        collection do
-          post 'chat'
-        end
-      end
+      resources :rooms, only:[:create, :index, :show]
       resources :chats, only:[:create]
     end
 
