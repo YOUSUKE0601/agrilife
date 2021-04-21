@@ -63,10 +63,13 @@
   </div>
   <div class="row d-flex justify-content-end">
     <div class="col-lg-3">
-      <p class="font-weight-bold">フォロワー : <%= @farmer.relationships.count %>人</p>
+      <%= link_to(follower_producer_farmer_path(@farmer)) do %>
+        <p class="font-weight-bold">フォロワー : <%= @farmer.relationships.count %>人</p>
+      <% end %>
     </div>
     <div class="col-lg-3">
       <%= link_to "編集する", edit_producer_farmer_path(@current_farmer), class: "btn btn-secondary" %>
     </div>
   </div>
 </div>
+

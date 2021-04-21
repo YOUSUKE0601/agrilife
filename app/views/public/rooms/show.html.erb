@@ -1,44 +1,52 @@
-<div class="left-button">
-  <%= link_to "詳細画面に戻る", public_farmer_path(@room.farmer_id), class: "edit-link" %>
-</div>
-<h4 class="room-title">チャットルーム</h4>
-  <div class="end_user-name">
-    <strong>
-      <%= attachment_image_tag @room.end_user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", class:"rounded-circle"; %>
-        <%= @room.end_user.name %>さん
-    </strong>
+<div class="container">
+  <div class="row">
+    <div class="left-button pt-2">
+      <%= link_to "詳細画面に戻る", public_farmer_path(@room.farmer_id), class: "edit-link" %>
+    </div>
+    <h2 class="room-title mx-auto my-4">チャットルーム</h2>
   </div>
-  <div class="farmer-name">
-    <strong>
-      <%= attachment_image_tag @room.farmer, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", class: "rounded-circle"; %>
-        <%= @room.farmer.name %>さん
-    </strong>
+  <div class="row">
+    <div class="end_user-name col-3">
+      <strong>
+        <%= attachment_image_tag @room.end_user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", class:"rounded-circle"; %>
+          <%= @room.end_user.name %>さん
+      </strong>
+    </div>
+    <div class="farmer-name col-3">
+      <strong>
+        <%= attachment_image_tag @room.farmer, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", class: "rounded-circle"; %>
+          <%= @room.farmer.name %>さん
+      </strong>
+    </div>
   </div>
-<hr>
-<div class="chats">
-  <div class="chat">
-    <% if @chats.present? %>
-      <% @chats.each do |c| %>
-        <div class="chat-box">
-          <div class="end_user-chat-face">
-            <% if c.end_user != nil %>
-              <%= attachment_image_tag c.end_user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", class:"rounded-circle"; %>
-            <% else %>
-              <%= attachment_image_tag c.farmer, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", class:"rounded-circle"; %>
-            <% end %>
-          </div>
-          <div class="chat-hukidashi"> <strong><%= c.message %></strong> <br>
-            <%= c.created_at.strftime("%Y-%m-%d %H:%M") %>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
-  <div class="posts">
-    <%= form_with model: @chat, url: public_farmer_chats_path(@room.farmer_id), method: :post, local: true do |f| %>
-      <%= f.text_field :message, placeholder: "メッセージを入力してください", size: 70, class:"form-text-field" %>
-        <%= f.hidden_field :room_id, value: @room.id %>
-          <%= f.submit "投稿", class: "form-submit" %>
-    <% end %>
+  <hr>
+  <div class="row">
+    <div class="chats mx-auto">
+      <div class="chat col-12">
+        <% if @chats.present? %>
+          <% @chats.each do |c| %>
+            <div class="chat-box">
+              <div class="end_user-chat-face">
+                <% if c.end_user != nil %>
+                  <%= attachment_image_tag c.end_user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", class:"rounded-circle"; %>
+                <% else %>
+                  <%= attachment_image_tag c.farmer, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", class:"rounded-circle"; %>
+                <% end %>
+              </div>
+              <div class="chat-hukidashi"> <strong><%= c.message %></strong> <br>
+                <%= c.created_at.strftime("%Y-%m-%d %H:%M") %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="posts col-12 pt-5">
+        <%= form_with model: @chat, url: public_farmer_chats_path(@room.farmer_id), method: :post, local: true do |f| %>
+          <%= f.text_field :message, placeholder: "メッセージを入力してください", size: 70, class:"form-text-field" %>
+            <%= f.hidden_field :room_id, value: @room.id %>
+              <%= f.submit "投稿", class: "form-submit" %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>

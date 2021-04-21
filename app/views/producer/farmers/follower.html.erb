@@ -1,0 +1,24 @@
+<h1>Follower</h1>
+  <% if @end_users.present? %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>プロフィール写真</th>
+          <th>名前</th>
+          <th colspan="2"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @end_users.each do |end_user| %>
+          <tr>
+            <td><%= attachment_image_tag end_user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", class: "rounded-circle"; %></td>
+            <td><%= end_user.name %></td>
+            <td><%= "フォロー数: #{end_user.relationships.count}" %></td>
+            <td></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p>ユーザーはいません</p>
+  <% end %>

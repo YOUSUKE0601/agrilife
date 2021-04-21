@@ -15,6 +15,9 @@ Rails.application.routes.draw do
     resources :topics, only: [:new, :index, :create, :show, :edit, :destroy]
 
     resources :farmers, only: [:edit, :index, :update, :destroy] do
+      member do
+        get "follower"
+      end
       collection do
         get 'my_page'
         get 'unsubscribe'
@@ -22,11 +25,8 @@ Rails.application.routes.draw do
     end
 
     resources :end_users do
-      resources :rooms, only: [:index, :show] do
-        collection do
-          post 'chat'
-        end
-      end
+      resources :rooms, only: [:index, :show]
+      resources :chats, only: [:create]
     end
 
 

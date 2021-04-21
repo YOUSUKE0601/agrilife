@@ -24,6 +24,11 @@ class Producer::FarmersController < ApplicationController
     redirect_to root_path
   end
   
+  def follower
+    @farmer = Farmer.find(params[:id])
+    @end_users = EndUser.where(id: Relationship.where(farmer_id: @farmer.id).pluck(:end_user_id))
+  end
+  
   private
   
   def farmer_params
