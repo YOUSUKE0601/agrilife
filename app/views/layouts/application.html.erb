@@ -25,11 +25,8 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
               <% if end_user_signed_in? %>
-                <li>
+                <li class="mr-2">
                   ようこそ、<%= current_end_user.name %>さん！
-                </li>
-                <li class="nav-item mx-2 border font-weight-bold">
-                  <%= link_to "About", about_path, class: 'nav-link text-dark' %>
                 </li>
                 <li class="nav-item mr-2 border font-weight-bold">
                   <%= link_to "My page", my_page_public_end_users_path, class: 'nav-link text-dark' %>
@@ -77,8 +74,8 @@
     <footer class="bg-dark text-white pt-5 pb-4">
       <div class="container">
         <div class="row">
-          <div class="col-4">
-            <p>いつも身近に農業を！！</p>
+          <div class="col-8 mx-auto" style="text-align:center;">
+            <p>CopyRight Yousuke Tokuma</p>
           </div>
         </div>
       </div>
