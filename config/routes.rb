@@ -48,6 +48,7 @@ Rails.application.routes.draw do
       member do
         get 'favorites'
         get 'following'
+        get 'chater'
       end
     end
 

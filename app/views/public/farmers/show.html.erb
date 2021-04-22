@@ -69,15 +69,16 @@
       <%= link_to "トピックを見る", public_topics_path(farmer_id: @farmer), class: "btn btn-secondary" %>
     </div>
     <div class="chat-btn">
+      <% farmer_room = current_end_user.with_farmer_room(@farmer) %>
       <% if @farmer.followed_by?(current_end_user) %>
-        <% if @isRoom != true %>
-          <%= form_with model: @room, url: public_farmer_rooms_path(@farmer.id), method: :post do |f| %>
+        <% if farmer_room == nil %>
+          <%= form_with model: Room.new, url: public_farmer_rooms_path(@farmer.id), method: :post do |f| %>
             <%= f.hidden_field :farmer_id, value: @farmer.id %>
             <%= f.hidden_field :end_user_id, value: current_end_user.id %>
             <%= f.submit "チャットを始める", class: "btn btn-primary" %>
           <% end %>
         <% else %>
-          <%= link_to "チャットへ", public_farmer_room_path(id: @room.id, farmer_id: @farmer.id), class:"btn btn-primary" %>
+          <%= link_to "チャットへ", public_farmer_room_path(id: farmer_room.id, farmer_id: @farmer.id), class:"btn btn-primary" %>
         <% end %>
       <% end %>
     </div>

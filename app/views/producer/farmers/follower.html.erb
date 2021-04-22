@@ -15,14 +15,15 @@
             <td><%= end_user.name %></td>
             <td><%= "フォロー数: #{end_user.relationships.count}" %></td>
             <td>
-              <% if @isRoom != true %>
-                <%= form_with model: @room, url: producer_end_user_rooms_path(end_user.id), method: :post do |f| %>
+              <% farmer_room = end_user.with_farmer_room(current_farmer) %>
+              <% if farmer_room == nil %>
+                <%= form_with model: Room.new, url: producer_end_user_rooms_path(end_user.id), method: :post do |f| %>
                   <%= f.hidden_field :farmer_id, value: current_farmer.id %>
                   <%= f.hidden_field :end_user_id, value: end_user.id %>
                   <%= f.submit "チャットを始める", class: "btn btn-primary" %>
                 <% end %>
               <% else %>
-                <%= link_to "チャットへ", producer_end_user_room_path(id: @room.id, end_user_id: end_user.id), class:"btn btn-primary" %>
+                <%= link_to "チャットへ", producer_end_user_room_path(id: farmer_room.id, end_user_id: end_user.id), class:"btn btn-primary" %>
               <% end %>
             </td>
           </tr>

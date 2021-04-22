@@ -34,6 +34,11 @@ class Public::EndUsersController < ApplicationController
     @end_user = EndUser.find(params[:id])
     @farmers = Farmer.where(id: Relationship.where(end_user_id: @end_user.id).pluck(:farmer_id)).page(params[:page]).reverse_order
   end
+  
+  def chater
+    @end_user = EndUser.find(params[:id])
+    @farmers = Farmer.where(id: Room.where(end_user_id: @end_user.id).pluck(:farmer_id))
+  end
 
 
 

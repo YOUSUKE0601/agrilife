@@ -27,14 +27,14 @@
           <% @chats.each do |c| %>
             <div class="chat-box mt-3">
               <% if c.end_user != nil %>
-                <div class="text-left">
+                <div class="text-right">
                   <%= attachment_image_tag c.end_user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", class:"rounded-circle"; %>
                   <div class="chat-hukidashi"> <strong><%= c.message %></strong> <br>
                     <%= c.created_at.strftime("%Y-%m-%d %H:%M") %>
                   </div>
                 </div>
               <% else %>
-                <div class="text-right">
+                <div class="text-left">
                   <%= attachment_image_tag c.farmer, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", class:"rounded-circle"; %>
                   <div class="chat-hukidashi"> <strong><%= c.message %></strong> <br>
                     <%= c.created_at.strftime("%Y-%m-%d %H:%M") %>

@@ -13,7 +13,13 @@ class EndUser < ApplicationRecord
   has_many :rooms, dependent: :destroy
   has_many :chats, dependent: :destroy
   
-  
+  def with_farmer_room(farmer)
+    rooms = self.rooms.where(farmer_id: farmer.id)
+    if rooms.present?
+      return rooms.first
+    end
+    nil
+  end
 
 
 end
