@@ -18,3 +18,18 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function(){
+  $(".TopImage-under").skippr({
+    transition: 'fade',
+    speed: 1000,
+    easign: 'easeOutQuart',
+    navType: 'block',
+    childrenElementType: 'div',
+    arrows: true,
+    autoPlay: true,
+    autoPlayDuration: 3000,
+    keyboardOnAlways: true,
+    hidePrevious: false
+  });
+});
