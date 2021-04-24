@@ -1,4 +1,5 @@
 class Public::ChatsController < ApplicationController
+  before_action :authenticate_end_user!
 
   def create
     if Room.where(farmer_id: params[:farmer_id]).present?

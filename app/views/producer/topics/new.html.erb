@@ -3,8 +3,14 @@
     <div class="col-lg-5 mx-auto shadow-lg rouded px-0 my-5">
       <h5 class="text-dark bg-light p-4 mb-0">投稿フォーム</h5>
       <div class="form-body p-4">
+        <% if @topic.errors.any? %>
+          <%= @topic.errors.count %>件のエラーが発生しました。</br>
+          <% @topic.errors.full_messages.each do |message| %>
+            <%= message %>
+          <% end %>
+        <% end %>
         <%= form_with model: @topic, url: producer_topics_path, method: :post, local:true do |f| %>
-          <%= f.attachment_field :topic_image, class: "w-100" %>
+          <%= f.attachment_field :topic_image, class: "w-100 mt-3" %>
           <div class="input-group mb-3 mt-4">
             <div class="input-group-prepend">
               <span class="input-group-text" aria-hidden="true"><i class="fas fa-tractor"></i></span>

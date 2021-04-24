@@ -16,6 +16,20 @@ class Farmer < ApplicationRecord
 
   has_many :rooms, dependent: :destroy
   has_many :chats, dependent: :destroy
+  
+  validates :category, presence: true
+  validates :farm_name, presence: true
+  validates :name, presence: true
+  validates :profile_image, presence: true
+  validates :farm_image, presence: true
+  validates :region, presence: true
+  validates :postcode, presence: true
+  validates :telephone_number, presence: true
+  validates :introduction, presence: true
+  validates :prefecture, presence: true
+  validates :address, presence: true
+  
+  
 
 
 

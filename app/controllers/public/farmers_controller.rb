@@ -1,5 +1,7 @@
 class Public::FarmersController < ApplicationController
-
+  before_action :authenticate_end_user!
+  
+  
   def search
     @q = Farmer.ransack(params[:q])
     

@@ -1,0 +1,10 @@
+ja:
+  activerecord:
+    attributes:
+      topic:
+        title: 題名
+        body: 本文
+        topic_image: 画像
+        
+      end_user: ユーザー
+      farmer: 生産者

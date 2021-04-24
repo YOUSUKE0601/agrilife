@@ -4,7 +4,11 @@ class Public::TopicCommentsController < ApplicationController
     @topic = Topic.find(params[:topic_id])
     @comment = current_end_user.topic_comments.new(topic_comment_params)
     @comment.topic_id = @topic.id
-    @comment.save
+    unless @comment.save
+      flash[:notice] = "コメントが空欄です"
+      #リロードする
+      render :js => 'window.location.reload()'
+    end
     # app/views/public/topic_comments/create.js.erbを参照する
   end
 

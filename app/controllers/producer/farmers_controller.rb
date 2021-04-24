@@ -1,5 +1,7 @@
 class Producer::FarmersController < ApplicationController
   
+   before_action :authenticate_farmer!
+  
   def my_page
     @farmer = current_farmer
   end

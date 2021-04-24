@@ -16,20 +16,23 @@
 
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
-//= require_tree .
+//= require_tree
 
-$(document).ready(function(){
-  $(".TopImage-under").skippr({
-    transition: 'fade',
-    speed: 1000,
-    easign: 'easeOutQuart',
-    navType: 'block',
-    childrenElementType: 'div',
-    arrows: true,
-    autoPlay: true,
-    autoPlayDuration: 3000,
-    keyboardOnAlways: true,
-    hidePrevious: false
+// document.addEventListener("turbolinks:load", function(){
+window.onload = function() {
+  $(document).ready(function(){
+    $(".TopImage-under").skippr({
+       transition: 'fade',
+       speed: 1000,
+       easign: 'easeOutQuart',
+       navType: 'block',
+       childrenElementType: 'div',
+       arrows: true,
+       autoPlay: true,
+       autoPlayDuration: 3000,
+       keyboardOnAlways: false,
+       hidePrevious: false
+    });
   });
-});
+};
+// });

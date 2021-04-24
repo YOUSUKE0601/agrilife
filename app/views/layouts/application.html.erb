@@ -7,8 +7,10 @@
     <meta name="veiwport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%#= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%#= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+     <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
   </head>
 
   <body class="d-flex flex-column vh-100">
@@ -22,7 +24,7 @@
               <a class="navbar-brand p-3" href="/"><%= image_tag 'logo.png', :size =>'120x40' %></a>
             <% end %>
           </div>
-          
+
           <!--ハンバーガーメニュー-->
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -63,9 +65,10 @@
                 <li class="nav-item mr-2 border font-weight-bold">
                   <%= link_to "ログイン", new_end_user_session_path, class: 'nav-link text-dark' %>
                 </li>
-                <li class="nav-item border font-weight-bold">
+                <li class="nav-item mr-2 border font-weight-bold">
                   <%= link_to "生産者はこちら", new_farmer_registration_path, class: 'nav-link text-dark' %>
                 </li>
+                
               <% end %>
             </ul>
           </div>

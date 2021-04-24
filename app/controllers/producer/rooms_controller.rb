@@ -1,4 +1,5 @@
 class Producer::RoomsController < ApplicationController
+  before_action :authenticate_farmer!
   
   def create
     @room = Room.create(room_params)

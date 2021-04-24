@@ -1,4 +1,5 @@
 class Producer::TopicsController < ApplicationController
+   before_action :authenticate_farmer!
   
   def new
     @topic = Topic.new
@@ -7,8 +8,11 @@ class Producer::TopicsController < ApplicationController
   def create
     @topic = Topic.new(topic_params)
     @topic.farmer_id = current_farmer.id 
-    @topic.save
-    redirect_to my_page_producer_farmers_path
+    if @topic.save
+      redirect_to my_page_producer_farmers_path
+    else
+      render :new
+    end
   end
   
   def index

@@ -13,6 +13,10 @@ class EndUser < ApplicationRecord
   has_many :rooms, dependent: :destroy
   has_many :chats, dependent: :destroy
   
+  validates :name, presence: true
+  
+
+  
   def with_farmer_room(farmer)
     rooms = self.rooms.where(farmer_id: farmer.id)
     if rooms.present?
@@ -20,6 +24,6 @@ class EndUser < ApplicationRecord
     end
     nil
   end
-
+  
 
 end
