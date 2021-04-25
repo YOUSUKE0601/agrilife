@@ -33,9 +33,10 @@
         </div>
         <hr>
         <div class="errors-message">
-          <% flash.each do |message_type, message| %>
-            <%= message %>
-          <% end %>
+          <%= flash[:error] %>
+           <%#flash.each do |message_type, message| %>
+            <%#= message %>
+          <%# end %>
         </div>
         <div class="new-comment card-text">
           <%= form_with model:[@topic, @topic_comment], url: public_topic_topic_comments_path(@topic.id), method: :post do |f| %>

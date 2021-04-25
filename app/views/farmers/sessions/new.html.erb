@@ -4,6 +4,7 @@
       <h5 class="text-dark bg-light p-4 mb-0">ログイン(生産者用)</h5>
       <div class="form-body p-4">
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <%= flash[:alert]%>
           <div class="input-group mb-3 mt-4">
             <%= f.email_field :email, class:"form-control", autofocus: true, autocomplete: "email", placeholder:"Email" %>
           </div>

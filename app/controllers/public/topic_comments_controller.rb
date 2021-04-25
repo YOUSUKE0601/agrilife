@@ -5,7 +5,7 @@ class Public::TopicCommentsController < ApplicationController
     @comment = current_end_user.topic_comments.new(topic_comment_params)
     @comment.topic_id = @topic.id
     unless @comment.save
-      flash[:notice] = "コメントが空欄です"
+      flash[:error] = "コメントが空欄です"
       #リロードする
       render :js => 'window.location.reload()'
     end

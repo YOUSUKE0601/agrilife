@@ -39,6 +39,7 @@ class Public::EndUsersController < ApplicationController
   def chater
     @end_user = EndUser.find(params[:id])
     @farmers = Farmer.where(id: Room.where(end_user_id: @end_user.id).pluck(:farmer_id))
+    @chats = Chat.where(end_user_id: current_end_user.id)
   end
 
 
