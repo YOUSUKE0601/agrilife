@@ -1,12 +1,12 @@
 <div class="container">
   <div class="row">
-    <h1 class="pt-3">マイページ</h1>
+    <h1 class="pt-3 ml-3">マイページ</h1>
   </div>
 
   <div class="row">
     <div class="col-lg-5">
       <div class="mb-3"><%= attachment_image_tag @farmer, :profile_image, :fill, 200, 200, format: 'jpeg', fallback: "no_image.jpeg", size:'250x250' %></div>
-      <div><%= attachment_image_tag @farmer, :farm_image, :fill, 300, 300, format: 'jpeg', fallback: "no_image.jpeg", size:'300x200' %></div>
+      <div class="mt-5"><%= attachment_image_tag @farmer, :farm_image, :fill, 400, 400, format: 'jpeg', fallback: "no_image.jpeg", size:'400x400' %></div>
     </div>
 
     <div class="col-lg-7">
@@ -61,7 +61,7 @@
       </table>
     </div>
   </div>
-  <div class="row d-flex justify-content-end">
+  <div class="row d-flex justify-content-end mb-5">
     <div class="col-lg-3">
       <%= link_to(follower_producer_farmer_path(@farmer)) do %>
         <p class="font-weight-bold">フォロワー : <%= @farmer.relationships.count %>人</p>
