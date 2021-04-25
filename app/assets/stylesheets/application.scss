@@ -19,7 +19,7 @@
 
 
   .TopImage{
-   background-image: url("top_image/top_image1.jpg");
+   background-image: image-url("top_image/top_image1.jpg");
    background-position: 50% 30%;
    background-size: cover;
  }
@@ -31,22 +31,22 @@
 
 
  .top_image2{
-   background-image: url("top_image2.jpg");
+   background-image: image-url("top_image2.jpg");
    background-position: 50% 30%;
    background-size: cover;
   }
  .top_image3{
-   background-image: url("top_image3.jpg");
+   background-image: image-url("top_image3.jpg");
    background-position: 50% 30%;
    background-size: cover;
   }
  .top_image4{
-   background-image: url("top_image4.jpg");
+   background-image: image-url("top_image4.jpg");
    background-position: 50% 30%;
    background-size: cover;
   }
  .top_image5{
-   background-image: url("top_image5.jpg");
+   background-image: image-url("top_image5.jpg");
    background-position: center;
    background-size: cover;
   }
