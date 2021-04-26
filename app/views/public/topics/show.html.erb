@@ -14,7 +14,7 @@
                   <strong><%= @topic.title %></strong>
                 <% end %>
               </p>
-              <p class="card-body">説明：<%= @topic.body %></p>
+              <p class="card-body">説明：<%= safe_join(@topic.body.split("\n"), tag(:br)) %></p>
               <span>By <%= @topic.farmer.name %> | </span>
               <span> <%= @topic.created_at.strftime('%Y年%m月%d日%H時%M分') %> | </span>
               <span><i class="fas fa-comments"></i> <%= link_to "#{@topic.topic_comments.count}", public_topic_path(@topic), class: "text-dark" %> | </span>

@@ -17,6 +17,9 @@
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
 
+ body{
+  font-family: 'HanziPen SC',sans-serif;
+  }
 
   .TopImage{
    background-image: image-url("top_image/top_image1.jpg");
@@ -56,3 +59,31 @@
   background-color: red;
  }
 
+.pagination {
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.pagination>li {
+  border: none;
+  color: #000;
+  border-radius: 20px;
+  margin-right: 20px;
+}
+
+.pagination>li>a {
+  border: none;
+  color: #000;
+  padding: 15px 10px;
+  border-radius: 30px;
+}
+
+.pagination>.active>a {
+  background: #82e89d;
+  border-radius: 20px;
+}
+
+.pagination>li>a:hover {
+  background: #82e89d;
+  border-radius: 20px;
+}
