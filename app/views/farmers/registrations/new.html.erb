@@ -16,53 +16,53 @@
             <%= f.label "農園画像" %><br />
             <%= f.attachment_field :farm_image, placeholder: "農園画像", class: 'form-control-file' %>
           </div>
-          <div class="input-group mb-3 mt-4">
+          <div class="field mb-3 mt-4">
             <%= f.text_field :farm_name, class:"form-control", autofocus: true, autocomplete: "farm_name", placeholder:"農園名" %>
           </div>
-          <div class="input-group mt-4">
+          <div class="field mt-4">
             <%= f.text_field :name, class:"form-control", autofocus: true, autocomplete: "name", placeholder:"お名前" %>
           </div>
-          <div class="input-group  mt-4">
+          <div class="field  mt-4">
             <%= f.email_field :email, class:"form-control", autofocus: true, autocomplete: "email", placeholder:"Email" %>
           </div>
-          <div class="input-group mt-4">
+          <div class="field mt-4">
             <%= f.select :region, Farmer.regions.keys, {include_blank: "地域を選択してください"}, {class: "form-control"} %>
           </div>
-          <div class="input-group mt-4">
+          <div class="field mt-4">
             <%= f.text_field :postcode, class:"form-control", autofocus: true, autocomplete: "postcode", placeholder:"郵便番号" %>
           </div>
-          <div class="input-group mt-4">
+          <div class="field mt-4">
             <%= f.text_field :prefecture, class:"form-control", autofocus: true, autocomplete: "prefecture", placeholder:"都道府県" %>
           </div>
-          <div class="input-group mt-4">
+          <div class="field mt-4">
             <%= f.text_field :address, class:"form-control", autofocus: true, autocomplete: "address", placeholder:"住所" %>
           </div>
-          <div class="input-group mt-4">
+          <div class="field mt-4">
             <%= f.text_field :telephone_number, class:"form-control",autocomplete: "telephone_number", placeholder:"電話番号" %>
           </div>
-          <div class="input-group mt-4">
+          <div class="field mt-4">
             <%= f.text_area :introduction, class:"form-control", rows:"3", autofocus: true, autocomplete: "introduction", placeholder:"説明" %>
           </div>
-          <div class="input-group mt-4">
+          <div class="field mt-4">
             <%= f.select :category, Farmer.categories.keys, {include_blank: "カテゴリーを選択してください"}, {class: "form-control"} %>
           </div>
-          <div class="input-group mt-4">
+          <div class="field mt-4">
             <% if @minimum_password_length %>
             <em><% @minimum_password_length %></em>
             <% end %><br />
             <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder:"パスワード 6文字以上" %>
           </div>
-          <div class="input-group mt-4">
+          <div class="field mt-4">
             <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder:"パスワード（確認用）" %>
           </div>
           <% if devise_mapping.rememberable? %>
           <div class="field">
             <%= f.check_box :remember_me %>
-            <%= f.label :remember_me %>
+            <%= f.label "入力内容を保存しますか?" %>
           </div>
           <% end %>
           <div class="actions mb-4 float-right">
-            <%= f.submit "Sign up" %>
+            <%= f.submit "新規登録" %>
           </div>
         <% end %>
       </div>
