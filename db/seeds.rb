@@ -163,3 +163,10 @@ Farmer.create!(
       )
   end
 end
+
+Topic.all.each do |topic|
+  tags = Vision.get_image_data(topic.topic_image)
+  tags.each do |tag|
+    topic.tags.create!(name: tag)
+  end
+end
