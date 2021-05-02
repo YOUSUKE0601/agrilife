@@ -5,6 +5,8 @@ class Topic < ApplicationRecord
   belongs_to :farmer
   has_many :topic_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :tags, dependent: :destroy
+  
 
   #引数で渡されたエンドユーザーidがFavoritesテーブルに存在するか
   def favorited_by?(end_user)

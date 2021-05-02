@@ -53,10 +53,10 @@
                   <%= link_to "ログアウト", destroy_farmer_session_path, method: :delete, class: 'nav-link text-dark' %>
                 </li>
                 <li class="nav-item mr-2 border font-weight-bold">
-                  <%= link_to "新規投稿する", new_producer_topic_path, class: 'nav-link text-dark' %>
+                  <%= link_to "新規投稿する", new_producer_farmer_topic_path(current_farmer), class: 'nav-link text-dark' %>
                 </li>
                 <li class="nav-item border font-weight-bold">
-                  <%= link_to "トピック履歴一覧", producer_topics_path(farmer_id: current_farmer.id), class: 'nav-link text-dark' %>
+                  <%= link_to "トピック履歴一覧", producer_farmer_topics_path(farmer_id: current_farmer.id), class: 'nav-link text-dark' %>
                 </li>
               <% else %>
                 <li class="nav-item mx-2 border font-weight-bold">
