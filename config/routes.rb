@@ -11,7 +11,6 @@ Rails.application.routes.draw do
 
   namespace :producer do
 
-    #resources :topics, only: [:new, :index, :create, :show, :edit, :destroy]
 
     resources :farmers, only: [:edit, :index, :update, :destroy] do
       resources :topics, only: [:new, :index, :create, :show, :edit, :destroy]
