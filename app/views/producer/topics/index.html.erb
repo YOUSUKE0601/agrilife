@@ -27,7 +27,11 @@
             </span>
             <span>
               <%= link_to(producer_farmer_topic_path(current_farmer, topic.id), class:"text-dark") do %>
-                <i class="fas fa-heart"></i> <%= topic.favorites.count %>
+                <% if topic.favorites.count == 0 %>
+                  <i class="fas fa-heart"></i> <%= topic.favorites.count %>
+                <% else %>
+                  <i class="fas fa-heart" style="color: red;"></i> <%= topic.favorites.count %>
+                <% end %>
               <% end %>
           </div>
         </div>

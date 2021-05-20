@@ -19,11 +19,15 @@
           <span>By <%= @topic.farmer.name %> | </span>
           <span> <%= @topic.created_at.strftime('%Y年%m月%d日%H時%M分') %> | </span>
           <span><i class="fas fa-comments"></i> <%= @topic.topic_comments.count %> | </span>
-          <span><i class="fas fa-heart"></i> <%= @topic.favorites.count %> | </span>
+          <% if @topic.favorites.count == 0 %>
+            <span><i class="fas fa-heart"></i> <%= @topic.favorites.count %> | </span>
+          <% else %>
+            <span></span><i class="fas fa-heart" style="color: red;"></i> <%= @topic.favorites.count %> | </span>
+          <% end %>
           <span><%= link_to "この投稿を削除する", producer_farmer_topic_path(@topic), method: :delete,  "data-confirm" => "本当に削除しますか?" %></span>
         </div>
       </div>
-      <hr>  
+      <hr>
       <div class="comments card-text">
         <h4 class="mt-3"><%= @topic.topic_comments.count %>件コメント</h4>
         <% @topic.topic_comments.each do |topic_comment| %>
