@@ -22,7 +22,7 @@ class Producer::TopicsController < ApplicationController
 
   def index
     @farmer = Farmer.find_by(id: params[:farmer_id])
-    @topics = @farmer.topics.page(params[:page]).reverse_order
+    @topics = @farmer.topics.includes(:tags).page(params[:page]).reverse_order
   end
 
   def show
