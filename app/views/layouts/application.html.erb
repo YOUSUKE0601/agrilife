@@ -29,7 +29,6 @@
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
               <% if end_user_signed_in? %>
@@ -59,7 +58,7 @@
                   <%= link_to "トピック履歴一覧", producer_farmer_topics_path(farmer_id: current_farmer.id), class: 'nav-link text-dark' %>
                 </li>
               <% else %>
-                <li class="nav-item mx-2 border font-weight-bold">
+                <li class="nav-item mr-2 border font-weight-bold">
                   <%= link_to "新規登録", new_end_user_registration_path, class: 'nav-link text-dark' %>
                 </li>
                 <li class="nav-item mr-2 border font-weight-bold">
@@ -68,7 +67,6 @@
                 <li class="nav-item mr-2 border font-weight-bold">
                   <%= link_to "生産者はこちら", new_farmer_registration_path, class: 'nav-link text-dark' %>
                 </li>
-
               <% end %>
             </ul>
           </div>
