@@ -14,78 +14,12 @@
   </head>
 
   <body class="d-flex flex-column vh-100">
-    <header class='shadow-sm'>
-      <nav class="navbar navbar-expand-lg navbar-silver">
-        <div class="container">
-          <div class"logo">
-            <% if farmer_signed_in? %>
-              <a class="navbar-brand p-3" href="/producer/farmers/my_page"><%= image_tag 'logo.png', :size =>'120x40' %></a>
-            <% else %>
-              <a class="navbar-brand p-3" href="/"><%= image_tag 'logo.png', :size =>'120x40' %></a>
-            <% end %>
-          </div>
-
-          <!--ハンバーガーメニュー-->
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav ml-auto">
-              <% if end_user_signed_in? %>
-                <li class="mr-2">
-                  ようこそ、<%= current_end_user.name %>さん！
-                </li>
-                <li class="nav-item mr-2 border font-weight-bold">
-                  <%= link_to "My page", my_page_public_end_users_path, class: 'nav-link text-dark' %>
-                </li>
-                <li class="nav-item mr-2 border font-weight-bold">
-                  <%= link_to "投稿一覧", public_topics_path, class: 'nav-link text-dark' %>
-                </li>
-                <li class="nav-item mr-2 border font-weight-bold">
-                  <%= link_to "生産者さんを探す", search_public_farmers_path, class: 'nav-link text-dark' %>
-                </li>
-                <li class="nav-item border font-weight-bold">
-                  <%= link_to "ログアウト", destroy_end_user_session_path, method: :delete, class: 'nav-link text-dark' %>
-                </li>
-              <% elsif farmer_signed_in? %>
-                <li class="nav-item mx-2 border font-weight-bold">
-                  <%= link_to "ログアウト", destroy_farmer_session_path, method: :delete, class: 'nav-link text-dark' %>
-                </li>
-                <li class="nav-item mr-2 border font-weight-bold">
-                  <%= link_to "新規投稿する", new_producer_farmer_topic_path(current_farmer), class: 'nav-link text-dark' %>
-                </li>
-                <li class="nav-item border font-weight-bold">
-                  <%= link_to "トピック履歴一覧", producer_farmer_topics_path(farmer_id: current_farmer.id), class: 'nav-link text-dark' %>
-                </li>
-              <% else %>
-                <li class="nav-item mr-2 border font-weight-bold">
-                  <%= link_to "新規登録", new_end_user_registration_path, class: 'nav-link text-dark' %>
-                </li>
-                <li class="nav-item mr-2 border font-weight-bold">
-                  <%= link_to "ログイン", new_end_user_session_path, class: 'nav-link text-dark' %>
-                </li>
-                <li class="nav-item mr-2 border font-weight-bold">
-                  <%= link_to "生産者はこちら", new_farmer_registration_path, class: 'nav-link text-dark' %>
-                </li>
-              <% end %>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
+    <%= render 'layouts/header' %>
 
     <main class="mb-auto">
       <%= yield %>
     </main>
 
-    <footer class="bg-dark text-white pt-5 pb-4">
-      <div class="container">
-        <div class="row">
-          <div class="col-8 mx-auto" style="text-align:center;">
-            <p>CopyRight Yousuke Tokuma</p>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <%= render 'layouts/footer' %>
   </body>
 </html>

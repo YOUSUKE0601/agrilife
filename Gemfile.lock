@@ -53,6 +53,11 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    amazing_print (1.3.0)
+    anbt-sql-formatter (0.1.0)
+    annotate (3.1.1)
+      activerecord (>= 3.2, < 7.0)
+      rake (>= 10.4, < 14.0)
     archive-zip (0.12.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
@@ -202,6 +207,10 @@ GEM
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
+    rails-flog (1.6.1)
+      amazing_print
+      anbt-sql-formatter (>= 0.0.7)
+      rails (>= 4.2.0)
     rails-html-sanitizer (1.3.0)
       loofah (~> 2.3)
     rails-i18n (5.1.3)
@@ -325,6 +334,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  annotate
   bootsnap (>= 1.1.0)
   bootstrap (~> 4.5)
   bullet
@@ -345,6 +355,7 @@ DEPENDENCIES
   pry-rails
   puma (~> 3.11)
   rails (~> 5.2.5)
+  rails-flog
   rails-i18n
   ransack
   refile!
